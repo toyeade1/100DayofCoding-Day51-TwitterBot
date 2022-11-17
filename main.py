@@ -33,7 +33,6 @@ class InternetSpeedTwitterBot:
         self.down = self.driver.find_element('xpath', '//*[@id="container"]/div/div[3]/div/div/div/div[2]/div[3]/div[3]/div/div[3]/div/div/div[2]/div[1]/div[1]/div/div[2]/span').text
         self.up = self.driver.find_element('xpath', '//*[@id="container"]/div/div[3]/div/div/div/div[2]/div[3]/div[3]/div/div[3]/div/div/div[2]/div[1]/div[2]/div/div[2]/span').text
         print(f'Download Speed: {self.down} Mbps\nUpload Speed: {self.up} Mbps')
-        self.driver.quit()
 
     def tweet_at_provider(self, url):
         self.driver.get(url)
@@ -53,7 +52,7 @@ class InternetSpeedTwitterBot:
         self.driver.find_element('xpath', '/html/body/div[1]/div/div/div[2]/header/div/div/div/div[1]/div[3]/a').click()
         time.sleep(2)
         draft = self.driver.find_element('class name', 'public-DraftStyleDefault-block')
-        draft.send_keys(f'Hey Xfinity, why is my internet speed {self.down}down/{self.up}up when I pay for {PROMISED_DOWN}down/{PROMISED_UP}up?')
+        draft.send_keys(f'Hey Xfinity, why is my internet speed {self.down} down/{self.up} up when I pay for {PROMISED_DOWN} down/{PROMISED_UP} up?')
         time.sleep(5)
         self.driver.quit()
 
